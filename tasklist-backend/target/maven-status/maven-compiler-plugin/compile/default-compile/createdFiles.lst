@@ -1,0 +1,4 @@
+br/com/pw/tasklist/controller/TasksController.class
+br/com/pw/tasklist/entity/Task.class
+br/com/pw/tasklist/TasklistApplication.class
+br/com/pw/tasklist/repository/Tasks.class

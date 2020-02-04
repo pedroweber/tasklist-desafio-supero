@@ -1,0 +1,48 @@
+<div class="page">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light justify-content-between">
+        <a class="navbar-brand text-primary" href="#">Task List</a>
+
+        <button type="button" class="btn btn-outline-primary my-2 my-sm-0" (click)="openCreateTask()">
+            <fa-icon style="margin-right: 10px;" [icon]="faPlusCircle"></fa-icon>Criar Tarefa
+        </button>
+
+    </nav>
+
+    <div class="board">
+        <div class="board-wrapper">
+            <div class="board-columns" cdkDropListGroup>
+                <div class="board-column  bg-primary">
+
+                    <div class="column-title text-white">
+                        A fazer
+                    </div>
+
+                    <div class="tasks-container" cdkDropList [cdkDropListData]="tasks"
+                        (cdkDropListDropped)="drop($event)">
+                        <div class="task" [cdkDragData]="item" *ngFor="let item of getTasksFazer()" cdkDrag
+                            (click)="openInfoTask(item)">
+                            {{ item.titulo }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="board-column bg-primary ">
+
+                    <div class="column-title text-white">
+                        Concluída
+                    </div>
+
+                    <div class="tasks-container" cdkDropList [cdkDropListData]="tasks"
+                        (cdkDropListDropped)="drop($event)">
+                        <div class="task" [cdkDragData]="item" *ngFor="let item of getTasksConcluida()" cdkDrag
+                            (click)="openInfoTask(item)">
+                            {{ item.titulo }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
